@@ -1,5 +1,7 @@
 package clases;
 
+import java.util.Random;
+
 public class Combatiente {
 	private String nombre;
 	private byte vida;
@@ -12,6 +14,21 @@ public class Combatiente {
 		this.vida = vida;
 		this.arma = arma;
 		this.objetoDefensivo = objetoDefensivo;
+	}
+	
+	public Combatiente(String nombre, Arma arma, ObjetoDefensivo objetoDefensivo) {
+		this.nombre = nombre;
+		this.vida = 100;
+		this.arma = arma;
+		this.objetoDefensivo = objetoDefensivo;
+	}
+	
+	public Combatiente(String nombre) {
+		this.nombre=nombre;
+		this.vida=100;
+		this.arma=new Arma("Puños",(byte)5);
+		this.objetoDefensivo=
+				new ObjetoDefensivo("pesho descubierto",(byte)5);
 	}
 
 	public String getNombre() {
@@ -49,9 +66,41 @@ public class Combatiente {
 	@Override
 	public String toString() {
 		return this.nombre+" ("+this.vida+")\n\t"+
-				this.arma+"\n\t"+this.objetoDefensivo;
+				(this.arma==null?"Desarmado":this.arma)
+				+"\n\t"+
+				(this.objetoDefensivo==null?
+				"Sin defensa":this.objetoDefensivo);
 	}
 	
+	public byte atacar() {
+		Random r=new Random();
+		byte puntosHechos=(byte)r.nextInt(this.arma.getPuntosAtaque());
+		System.out.println(this.nombre+" ("+this.vida+") ataca con su "
+				+this.arma.getNombre()+
+				" y hace "+puntosHechos+" de daño");
+		return puntosHechos;
+	}
+	
+	public void defender(byte puntosAtaqueRecibidos) {
+		Random r=new Random();
+		byte puntosDefensaSacados=
+				(byte)r.nextInt(this.objetoDefensivo.getPuntosDefensa());
+		System.out.print(this.nombre+" ("+this.vida+") defiende con su "+
+				this.getObjetoDefensivo().getNombre()+" ");
+		if(puntosAtaqueRecibidos>puntosDefensaSacados) {
+			this.vida-=puntosAtaqueRecibidos-puntosDefensaSacados;
+			if(this.vida<0) {
+				this.vida=0; 
+				System.out.println("y se ha morido");
+			}else {
+				System.out.println("y recibe "+
+						(puntosAtaqueRecibidos-puntosDefensaSacados)
+								+" puntos de daño");
+			}
+		}else {
+			System.out.println("pero no recibe daño");
+		}
+	}
 	
 	
 	
