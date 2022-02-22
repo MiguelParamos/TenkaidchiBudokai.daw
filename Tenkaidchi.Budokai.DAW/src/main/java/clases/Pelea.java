@@ -39,10 +39,25 @@ public class Pelea {
 		Combatiente[] combatientes= {combatiente1,combatiente2};
 		Random r=new Random();
 		byte combatienteActual=(byte)r.nextInt(combatientes.length);
-		
-		byte puntosAtaque=combatientes[combatienteActual].atacar();
-		combatientes[(combatienteActual+1)%2].defender(puntosAtaque);
-		
+		do {
+			System.out.println("Turno "+turno);
+			byte puntosAtaque=combatientes[combatienteActual].atacar();
+			combatientes[(combatienteActual+1)%2].defender(puntosAtaque);
+			combatienteActual=(byte)((combatienteActual+1)%2);
+			System.out.println();
+			this.turno++;
+			try {
+				Thread.sleep(350);
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}while(this.combatiente1.getVida()>0&&this.combatiente2.getVida()>0);
+		if(this.combatiente1.getVida()>0) {
+			this.ganador=combatiente1;
+		}else {
+			this.ganador=combatiente2;
+		}
 	}
 	
 	
