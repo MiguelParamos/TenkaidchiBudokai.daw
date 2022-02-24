@@ -7,6 +7,8 @@ import clases.Arma;
 import clases.Combatiente;
 import clases.ObjetoDefensivo;
 import clases.Pelea;
+import clases.Ronda;
+import clases.Torneo;
 
 public class Tenkaidchi {
 
@@ -80,6 +82,9 @@ public class Tenkaidchi {
 				e.printStackTrace();
 			}
 		}
+		
+		Torneo torneo=new Torneo(combatientesIniciales);
+		torneo.jugarTorneo();
 		
 	}
 

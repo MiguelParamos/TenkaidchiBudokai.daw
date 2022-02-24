@@ -42,6 +42,15 @@ public class Ronda {
 	public ArrayList<Combatiente> jugarRonda() {
 		ArrayList<Combatiente> ganadores=new ArrayList<Combatiente>();
 		for(byte i=0;i<this.peleas.size();i++) {
+			System.out.println("\n---------|||"+this.nombre
+					+" ("+(i+1)+"/"+this.peleas.size()+")|||---------");
+			System.out.println("###~~~~~~~~"+this.peleas.get(i)+"~~~~~~~~###");
+			try {
+				Thread.sleep(4000);
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 			this.peleas.get(i).pelear();
 			ganadores.add(this.peleas.get(i).getGanador());
 		}

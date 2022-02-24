@@ -60,6 +60,11 @@ public class Pelea {
 		}
 	}
 	
+	public String toString() {
+		return this.combatiente1.getNombre()+" vs "+
+				this.combatiente2.getNombre();
+	}
+	
 	
 	
 }
