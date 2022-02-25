@@ -34,11 +34,11 @@ public class Tenkaidchi {
 		objetosDefensivosDisponibles.add(
 				new ObjetoDefensivo("Bolso de un gitano",(byte)5));
 		objetosDefensivosDisponibles.add(
-				new ObjetoDefensivo("Caparazón de tortuga",(byte)12));
+				new ObjetoDefensivo("Caparazï¿½n de tortuga",(byte)12));
 		objetosDefensivosDisponibles.add(
 				new ObjetoDefensivo("Paraguas de Mary Poppins",(byte)10));
 		objetosDefensivosDisponibles.add(
-				new ObjetoDefensivo("sábana",(byte)5));
+				new ObjetoDefensivo("sï¿½bana",(byte)5));
 		objetosDefensivosDisponibles.add(
 				new ObjetoDefensivo("antena de 5g",(byte)18));
 		objetosDefensivosDisponibles.add(
@@ -46,8 +46,12 @@ public class Tenkaidchi {
 		
 		//Declaro los nombres de los combatientes
 		String[] nombresDeCombatientes= 
-			{"Rafa","Jose Oña","Jose Coca",
-					"Julia","Berta","Juan Castilla","Emilio","Raul"};
+			{"Rafa","Jose OÃ±a","Jose Coca",
+					"Julia","Berta","Juan Castilla","Emilio","Raul","Diana","Oli","Salomon",
+					"Alba","Fran Jimenez","Juan Ruiz","Pablo","Porras","Lorenzo","Carlos",
+					"David Toledo","Victor","Javi","Edu","Fran Miguel","Alejandra","Ayoub",
+					"Putin","Trump","Miguel PÃ¡ramos","Luisa","Natalia","Alejandra Profe","Jorge" 
+					};
 		
 		Random r=new Random();
 		ArrayList<Combatiente> combatientesIniciales=
@@ -63,8 +67,8 @@ public class Tenkaidchi {
 			
 			//Saco de las disponibles el arma y objeto defensivo escogidos
 			//para que no se repitan
-			armasDisponibles.remove(armaEscogida);
-			objetosDefensivosDisponibles.remove(odEscogido);
+			//armasDisponibles.remove(armaEscogida);
+			//objetosDefensivosDisponibles.remove(odEscogido);
 			
 			combatientesIniciales.add(
 					new Combatiente(nombresDeCombatientes[i],
